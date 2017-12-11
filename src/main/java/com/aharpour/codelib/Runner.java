@@ -1,7 +1,5 @@
 package com.aharpour.codelib;
 
-import java.util.stream.StreamSupport;
-
 import com.aharpour.codelib.domain.Binval;
 import com.aharpour.codelib.domain.Bundle;
 import com.aharpour.codelib.domain.Names;
@@ -11,10 +9,11 @@ import com.aharpour.codelib.wrapper.BinvalWrapper;
 import com.aharpour.codelib.wrapper.BundleWrapper;
 import com.aharpour.codelib.wrapper.NamesWrapper;
 import com.aharpour.codelib.wrapper.RefsWrapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.stream.StreamSupport;
 
 /**
  * @author Ebrahim Aharpour
@@ -43,14 +42,6 @@ public class Runner implements CommandLineRunner {
     private VersioningRefsRepository versioningRefsRepository;
     @Autowired
     private VersioningNamesRepository versioningNamesRepository;
-    @Autowired
-    private SecurityWsBundleRepository securityBundleRepository;
-    @Autowired
-    private SecurityWsBinvalRepository securityBinvalRepository;
-    @Autowired
-    private SecurityWsRefsRepository securityRefsRepository;
-    @Autowired
-    private SecurityWsNamesRepository securityNamesRepository;
 
 
     @Override
@@ -61,16 +52,11 @@ public class Runner implements CommandLineRunner {
         printNames(defaultWsNamesRepository.findAll());
         printBinval(defaultWsBinvalRepository.findAll());
 
-        System.out.println("Security Workspace");
-        printBundle(securityBundleRepository.findAll());
-        printRefs(securityRefsRepository.findAll());
-        printNames(securityNamesRepository.findAll());
-        printBinval(securityBinvalRepository.findAll());
 
         System.out.println("Versioning Workspace");
         printBundle(versioningBundleRepository.findAll());
-        printRefs  (versioningRefsRepository.findAll());
-        printNames (versioningNamesRepository.findAll());
+        printRefs(versioningRefsRepository.findAll());
+        printNames(versioningNamesRepository.findAll());
         printBinval(versioningBinvalRepository.findAll());
 
     }
