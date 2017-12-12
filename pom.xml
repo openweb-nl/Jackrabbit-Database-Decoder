@@ -3,13 +3,36 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.aharpour.codelib</groupId>
+	<groupId>nl.openweb.hippo</groupId>
 	<artifactId>jackrabbit-database-decoder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Jackrabbit Database Decoder</name>
 	<description>Jackrabbit Database Decoder</description>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Ebrahim Aharpour</name>
+			<email>ebrahim@openweb.nl</email>
+			<organization>Open Web IT B.V.</organization>
+			<organizationUrl>https://www.openweb.nl/</organizationUrl>
+		</developer>
+		<developer>
+			<name>Muhammed Senussi</name>
+			<email>senussi@openweb.nl</email>
+			<organization>Open Web IT B.V.</organization>
+			<organizationUrl>https://www.openweb.nl/</organizationUrl>
+		</developer>
+	</developers>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
