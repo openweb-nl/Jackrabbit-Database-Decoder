@@ -1,11 +1,10 @@
 package com.aharpour.codelib.rest;
 
 import com.aharpour.codelib.domain.Bundle;
-import com.aharpour.codelib.domain.DefaultWsBundle;
 import com.aharpour.codelib.repository.DefaultWsBundleRepository;
 import com.aharpour.codelib.repository.VersioningBundleRepository;
+import com.aharpour.codelib.vo.BundleVO;
 import com.aharpour.codelib.vo.Workspace;
-import com.aharpour.codelib.wrapper.BundleWrapper;
 import org.apache.jackrabbit.core.id.NodeId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -40,16 +40,16 @@ public class BundleResource {
     }
 
     @GetMapping("/workspaces/{workspace}")
-    public Page<String> all(@PathVariable Workspace workspace, @PageableDefault Pageable pageable) {
+    public List<BundleVO> all(@PathVariable Workspace workspace, @PageableDefault Pageable pageable) {
 
-        return getBundles(workspace, pageable).map(BundleWrapper::new).map(BundleWrapper::toString);
+        return getBundles(workspace, pageable).map(BundleVO::new).getContent();
     }
 
     @GetMapping("/{bundleId}/workspaces/{workspace}")
-    public String one(@PathVariable UUID bundleId, @PathVariable Workspace workspace) {
+    public BundleVO one(@PathVariable UUID bundleId, @PathVariable Workspace workspace) {
 
 
-        return getBundle(bundleId, workspace).map(BundleWrapper::new).map(BundleWrapper::toString)
+        return getBundle(bundleId, workspace).map(BundleVO::new)
                 .orElseThrow(() -> new EntityNotFoundException(String.
                         format("No bundle is found by UUID[%s], in[%s] workspace", bundleId, workspace)));
     }

@@ -46,7 +46,7 @@ public class Runner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Default Workspace");
+       /* System.out.println("Default Workspace");
         printBundle(defaultWsBundleRepository.findAll());
         printRefs(defaultWsRefsRepository.findAll());
         printNames(defaultWsNamesRepository.findAll());
@@ -57,7 +57,7 @@ public class Runner implements CommandLineRunner {
         printBundle(versioningBundleRepository.findAll());
         printRefs(versioningRefsRepository.findAll());
         printNames(versioningNamesRepository.findAll());
-        printBinval(versioningBinvalRepository.findAll());
+        printBinval(versioningBinvalRepository.findAll());*/
 
     }
 
