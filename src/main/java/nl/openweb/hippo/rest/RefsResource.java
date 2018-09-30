@@ -45,7 +45,7 @@ public class RefsResource {
         return getRefs(workspace, pageable).map(RefsVO::new);
     }
 
-    @GetMapping("/{nodeId}/workspaces/{workspace}")
+    @GetMapping("/workspaces/{workspace}/{nodeId}")
     public RefsVO one(@PathVariable UUID nodeId, @PathVariable Workspace workspace){
       return getRef(nodeId, workspace)
               .map(RefsVO::new)

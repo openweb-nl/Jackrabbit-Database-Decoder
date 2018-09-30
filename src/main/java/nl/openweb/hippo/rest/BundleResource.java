@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -40,12 +39,11 @@ public class BundleResource {
     }
 
     @GetMapping("/workspaces/{workspace}")
-    public List<BundleVO> all(@PathVariable Workspace workspace, @PageableDefault Pageable pageable) {
-
-        return getBundles(workspace, pageable).map(BundleVO::new).getContent();
+    public Page<BundleVO> all(@PathVariable Workspace workspace, @PageableDefault Pageable pageable) {
+        return getBundles(workspace, pageable).map(BundleVO::new);
     }
 
-    @GetMapping("/{bundleId}/workspaces/{workspace}")
+    @GetMapping("/workspaces/{workspace}/{bundleId}")
     public BundleVO one(@PathVariable UUID bundleId, @PathVariable Workspace workspace) {
 
 
