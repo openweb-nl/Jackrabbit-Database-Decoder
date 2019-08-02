@@ -102,6 +102,32 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>1.0.2</version>
+				<configuration>
+					<from>
+						<image>gcr.io/distroless/java:8</image>
+					</from>
+					<to>
+						<image>openweb/jackrabbit-database-decoder</image>
+						<tags>
+							<tag>${project.version}</tag>
+							<tag>latest</tag>
+						</tags>
+					</to>
+					<container>
+						<jvmFlags>
+							<jvmFlag>-XX:+UnlockExperimentalVMOptions</jvmFlag>
+							<jvmFlag>-XX:+UseCGroupMemoryLimitForHeap</jvmFlag>
+							<jvmFlag>-XX:+HeapDumpOnOutOfMemoryError</jvmFlag>
+							<jvmFlag>-XX:HeapDumpPath=/dumps/</jvmFlag>
+							<jvmFlag>-Dfile.encoding=UTF-8</jvmFlag>
+						</jvmFlags>
+					</container>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
