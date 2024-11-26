@@ -1,4 +1,6 @@
 ## USAGE
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopenweb-nl%2FJackrabbit-Database-Decoder.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fopenweb-nl%2FJackrabbit-Database-Decoder?ref=badge_shield)
+
 
 *Step 1:* Clone the repository.
 
@@ -11,3 +13,6 @@ mvn clean package spring-boot:run
 ```  
 
 *Step 4:* Open up a browser and navigate to [http://localhost:9090](http://localhost:9090)
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopenweb-nl%2FJackrabbit-Database-Decoder.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fopenweb-nl%2FJackrabbit-Database-Decoder?ref=badge_large)
